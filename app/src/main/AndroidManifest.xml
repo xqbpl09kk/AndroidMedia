@@ -25,6 +25,8 @@
         </activity>
 
         <activity android:name=".book02.PlayerActivity"/>
+
+        <service android:name=".book02.MediaPlayerService"/>
     </application>
 
 </manifest>
