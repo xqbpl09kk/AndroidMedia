@@ -7,8 +7,17 @@ import me.pl09kk.learn.android.media.R
 class CameraActivity : AppCompatActivity() {
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
+
+    }
+
+    private fun setup(){
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 }

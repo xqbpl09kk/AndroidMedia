@@ -1,7 +1,9 @@
 package me.pl09kk.learn.android.media
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.list_item_main.view.*
+import me.pl09kk.learn.android.media.book02.PlayerActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -54,7 +57,10 @@ class MainActivity : AppCompatActivity() {
                         itemView.setOnClickListener {
                             when (adapterPosition) {
                                 0 -> {
-
+                                    startActivity(Intent(MediaStore.ACTION_VIDEO_CAPTURE))
+                                }
+                                1 ->{
+                                    startActivity(Intent(this@MainActivity , PlayerActivity::class.java))
                                 }
                             }
                             Toast.makeText(
