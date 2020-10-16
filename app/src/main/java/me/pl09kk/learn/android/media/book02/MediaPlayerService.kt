@@ -1,6 +1,7 @@
 package me.pl09kk.learn.android.media.book02
 
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Binder
@@ -42,6 +43,7 @@ class MediaPlayerService : Service() {
         }
         mediaPlayer.setOnPreparedListener {
             mState = PlaybackState.Prepared
+            mediaPlayer.seekTo(getSharedPreferences("play" , Context.MODE_PRIVATE).getInt("last_position" , 0))
         }
         mediaPlayer.setOnCompletionListener {
             stopSelf()
@@ -53,6 +55,9 @@ class MediaPlayerService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        if(avaliable()){
+            getSharedPreferences("play" , Context.MODE_PRIVATE).edit().putInt("last_position" , mediaPlayer.currentPosition).apply()
+        }
         release()
     }
 

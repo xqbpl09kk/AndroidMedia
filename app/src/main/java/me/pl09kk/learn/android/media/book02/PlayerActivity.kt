@@ -16,7 +16,9 @@ import me.pl09kk.learn.android.media.R
 class PlayerActivity : AppCompatActivity() {
     private val TAG = "PlayerActivity"
 
+    private var playService :MediaPlayerService ?= null
     private val uiHandler = Handler(Looper.getMainLooper())
+
     private val seekBarUpdater = object : Runnable {
         override fun run() {
             runOnUiThread {
@@ -24,11 +26,9 @@ class PlayerActivity : AppCompatActivity() {
                 playedText.text = playService?.getCurrent()
                 seekBar.progress = playService?.getProgress()?:0
             }
-            uiHandler.postDelayed(this , 200)
+            uiHandler.postDelayed(this , 500)
         }
     }
-
-    private var playService :MediaPlayerService ?= null
 
     private val serviceCon = object : ServiceConnection {
 

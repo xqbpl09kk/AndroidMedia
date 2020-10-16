@@ -17,7 +17,7 @@ class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
         Log.e(TAG  , "onCreate")
-        startPlayService()
+
     }
 
     override fun attachBaseContext(base: Context?) {
@@ -27,6 +27,7 @@ class MyApp : Application() {
     }
 
     private fun startPlayService(){
-        startService(Intent(this , MediaPlayerService::class.java))
+
     }
+
 }

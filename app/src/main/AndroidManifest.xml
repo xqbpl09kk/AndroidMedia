@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.pl09kk.learn.android.media">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".MyApp"
@@ -16,6 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".task03_camera.CameraXActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_camera_x"
+            android:theme="@style/FullscreenTheme"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,10 +28,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".book02.PlayerActivity" />
+        <activity android:name=".book03.VideoPlayActivity"/>
 
-        <activity android:name=".book02.PlayerActivity"/>
-
-        <service android:name=".book02.MediaPlayerService"/>
+        <service android:name=".book02.MediaPlayerService" />
     </application>
 
 </manifest>

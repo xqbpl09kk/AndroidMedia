@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.list_item_main.view.*
+import me.pl09kk.learn.android.media.book02.MediaPlayerService
 import me.pl09kk.learn.android.media.book02.PlayerActivity
+import me.pl09kk.learn.android.media.book03.VideoPlayActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,6 +44,12 @@ class MainActivity : AppCompatActivity() {
         registerViews()
     }
 
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if(hasFocus)
+            startService(Intent(this , MediaPlayerService::class.java))
+    }
+
 
     private fun registerViews() {
         recyclerView.adapter = object : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -61,6 +69,9 @@ class MainActivity : AppCompatActivity() {
                                 }
                                 1 ->{
                                     startActivity(Intent(this@MainActivity , PlayerActivity::class.java))
+                                }
+                                2 ->{
+                                    startActivity(Intent(this@MainActivity , VideoPlayActivity::class.java))
                                 }
                             }
                             Toast.makeText(
